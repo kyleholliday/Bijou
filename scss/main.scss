@@ -1,0 +1,97 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+$light-green: #8CC34A;
+$blue-grey: #323F4C;
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $blue-grey;
+  color: white;
+}
+header {
+  background-image: -webkit-linear-gradient(#B4EC51 0%, #429321 100%);
+}
+#toplist {
+  font-family: AvenirNext-Bold;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style-type: none;
+}
+#logo {
+  display: inline;
+  float: left;
+  font-size: 50px;
+  color: #FFFFFF;
+  margin-left: 20px;
+}
+.navbar {
+  float: left;
+  font-size: 20px;
+}
+.toplink {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 0px 16px;
+  text-decoration: none;
+}
+#buzz{
+  margin-top: 20px;
+}
+form {
+  margin-top: 15px;
+  font-family: AvenirNext-Bold;
+  font-size: 24px;
+  color: #FFFFFF;
+  margin-right: 42px;
+  float: right;
+}
+input {
+  background: #32373B;
+  border: 2px solid #CCCCCC;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: AvenirNext-Bold;
+  padding: 4px;
+  padding-left: 10px;
+  color: white;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+#guardians {
+  width: 1230px;
+  height: auto;
+  margin-left: 25px;
+  margin-top: 15px;
+  border: 0px;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+#nowPlaying {
+  margin-left: 42px;
+  font-family: AvenirNext-Bold;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+#mainPlaying {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-decoration: none;
+}
+.nowPlayingList {
+  float: left;
+  padding-left: 11%;
+}
+.nowPlayingMovies {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+  color: white;
+}
