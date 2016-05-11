@@ -29,7 +29,7 @@ app.config(['$routeProvider', function ($routeProvider){
 }]);
 //Main Feed controller
 app.controller('MainViewController', ['$scope', '$http', 'FilmService', function ($scope, $http, FilmService) {
-
+  $scope.nowPlaying = FilmService.getNowPlaying();
 }
 ]);
 //Search View Controller

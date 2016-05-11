@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <img src="assets/2.jpg" id="guardians" />
 <h3 id="nowPlaying">Now Playing</h3>
-<ul id="mainPlaying">
-  <li class="nowPlayingList"><a href class="nowPlayingMovies"><img src="{{response.fullPoster}}" /></a></li>
-  <li class="nowPlayingList"><a href class="nowPlayingMovies">Movie</a></li>
-  <li class="nowPlayingList"><a href class="nowPlayingMovies">Movie</a></li>
-  <li class="nowPlayingList"><a href class="nowPlayingMovies">Movie</a></li>
-  <li class="nowPlayingList"><a href class="nowPlayingMovies">Movie</a></li>
+<div id="one">
+  <ul id="mainPlaying">
+  <li class="nowPlayingList" ng-repeat="movie in nowPlaying | limitTo: 5"><a href="/#film" class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" /></a></li>
 </ul>
+</div>
 <h3>Top Reviews</h3>
 <ul>
   <li>Review 1</li>
