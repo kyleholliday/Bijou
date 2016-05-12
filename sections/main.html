@@ -3,7 +3,7 @@
 <h3 id="nowPlaying">Now Playing</h3>
 <div id="one">
   <ul id="mainPlaying">
-  <li class="nowPlayingList" ng-repeat="movie in nowPlaying | limitTo: 5"><a href="/#film" class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" /></a></li>
+  <li class="nowPlayingList" ng-click="getMovie(movie)" ng-repeat="movie in nowPlaying | limitTo: 5"><a class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" /></a></li>
 </ul>
 </div>
 <h3>Top Reviews</h3>
