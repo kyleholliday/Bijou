@@ -10,7 +10,6 @@ body {
   background-color: $blue-grey;
   color: white;
 }
-
 h1 {
   font-family: AvenirNext-Bold;
 }
@@ -79,7 +78,7 @@ input {
   width: 1230px;
   height: auto;
   margin-left: 25px;
-  margin-top: 15px;
+  margin-top: 25px;
   border: 0px;
   border-radius: 5px;
   border: 2px solid white;
@@ -115,6 +114,15 @@ input {
     cursor: pointer;
   }
 }
+#bottomMain{
+  @include outer-container;
+}
+#bottomLeft{
+  @include span-columns(6);
+}
+#bottomRight {
+  @include span-columns(6);
+}
 //Film View stuff
 #filmBig {
   @include outer-container;
@@ -133,4 +141,14 @@ input {
   border-radius: 5px;
   margin-top: 20px;
   margin-left: 60px;
+}
+//Search View
+#searchPoster {
+  width: 250px;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+#searchRight {
+  display: flex;;
 }

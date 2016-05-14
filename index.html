@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bijou</title>
+  <title>BIJOU</title>
   <script src="./js/app.js"></script>
   <link href="./css/main.css" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -9,13 +9,13 @@
 
 <body ng-app="BijouApp">
 
-  <header>
+  <header ng-controller="HeaderController">
     <nav>
       <ul id = "toplist">
         <li class="navbar" id="logo"><a class="toplink" href="#/home">BIJOU</a></li>
         <li class="navbar" id="buzz"><a class="toplink" href="#/buzz">THE BUZZ</a></li>
         <form>
-          FILM FINDER <input type="text" name="Search" placeholder="SEARCH..."/>
+          FILM FINDER <input type="text" name="Search" ng-model="searchTerm" placeholder="SEARCH..."/><button ng-click="searchMovie()">Click Me!</button>
         </form>
       </ul>
     </nav>
