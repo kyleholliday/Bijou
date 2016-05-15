@@ -28,7 +28,7 @@ module.exports = (function(){
       getFilmById: function(id) {
         return $http({
           method: 'get',
-          url: 'https://api.themoviedb.org/3/movie/' + id + '?api_key=3f5dcd7179e2ff7c3180ca67d78b3936'
+          url: 'https://api.themoviedb.org/3/movie/' + id + '?api_key=3f5dcd7179e2ff7c3180ca67d78b3936&append_to_response=trailers,credits,reviews'
         })
         .then(function(result){
           return result.data;

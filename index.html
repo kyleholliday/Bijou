@@ -15,7 +15,7 @@
         <li class="navbar" id="logo"><a class="toplink" href="#/home">BIJOU</a></li>
         <li class="navbar" id="buzz"><a class="toplink" href="#/buzz">THE BUZZ</a></li>
         <form>
-          FILM FINDER <input type="text" name="Search" ng-model="searchTerm" placeholder="SEARCH..."/><button ng-click="searchMovie()">Click Me!</button>
+          <input type="text" name="Search" ng-model="searchTerm" placeholder="FILM FINDER "/><button id="searchButton" ng-click="searchMovie()">Search</button>
         </form>
       </ul>
     </nav>
@@ -23,5 +23,7 @@
   <div id="content" ng-view></div>
 
 </body>
-
+<footer>
+  <p>Created by Kyle Holliday. All film data provided by The Movie Database @ <a href="https://www.themoviedb.org/?language=en" id="tmdb" target="_blank">TMDb</a></p>
+</footer>
 </html>

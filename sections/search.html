@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<h2>Search Results</h2>
-<ul>
-  <li ng-repeat="search in searched | limitTo: 1">
-    <img id="searchPoster" ng-src="http://image.tmdb.org/t/p/w500/{{search.poster_path}}"/>
+<h1 id="searchResults">Search Results</h1>
+<ul id="searchListOne">
+  <li ng-repeat="search in searched | limitTo: 9" id="listItem">
+    <img id="searchPoster" ng-click="getMovie(movie)" ng-src="http://image.tmdb.org/t/p/w300/{{search.poster_path}}"/>
     <div id="searchRight">
-      <ul>
-        <li><h2>{{search.title}}</h2></li>
-        <li><h2>{{search.release_date}}</h2></li>
+      <ul id="searchListTwo">
+        <li><h3 id="searchTopTitle">{{search.title}}</h3></li>
+        <li><h4 id="releaseDate">{{yearResponse}}</h4></li>
       </ul>
     </div>
   </li>

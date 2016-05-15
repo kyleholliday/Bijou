@@ -2,15 +2,18 @@
 <div id="filmBig">
   <div id="filmLeft">
     <img ng-src="{{poster}}" id="bigPoster"/>
+    <a href="{{trailer}}" target="_blank"><button id="trailerButton">Watch Trailer</button></a>
   </div>
 
   <div id="filmRight">
     <h1>{{movie.title}}</h1>
-    <h2>{{movie.release_date}}</h2>
-    <h2>{{movie.director}}Directed By: Director</h2>
+    <h2>{{yearResponse}}</h2>
+    <h2>{{movie.director}}Directed By:</h2>
     <p>{{movie.overview}}</p>
     <h3>{{movie.starring}}</h3>
-    <h3 id="filmRuntime">{{movie.runtime}} min</h3>
+    <h3 id="filmRuntime">Runtime: {{movie.runtime}} mins</h3>
+    <h3>Starring: {{actor1}}, {{actor2}}, {{actor3}}</h3>
+    <!-- <h3>Revenue: ${{movie.revenue}}</h3> -->
     <h2>Top Reviews</h2>
     <h3>Review</h3>
     <h3>Similar Titles</h3>

@@ -2,6 +2,7 @@
 /* jslint esnext: true */
 var angular = require('angular');
 var angularRoute = require('angular-route');
+var moment = require('moment');
 require('./service');
 
 var app = angular.module('BijouApp', ['ngRoute', 'FilmModule']);
@@ -44,6 +45,9 @@ app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$locati
 app.controller('SearchViewController', ['$scope', '$http', 'FilmService', '$routeParams', function ($scope, $http, FilmService, $routeParams) {
   FilmService.searchBy($routeParams.query).then(function(searchedMovies) {
     $scope.searched = searchedMovies;
+    let year = searchedMovies.release_date;
+    $scope.yearResponse = moment(year).format('YYYY');
+    
   });
 }
 ]);
@@ -52,8 +56,15 @@ app.controller('SearchViewController', ['$scope', '$http', 'FilmService', '$rout
 app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeParams', function ($scope, $http, FilmService, $routeParams) {
   FilmService.getFilmById($routeParams.filmId).then(function(stuff) {
     $scope.movie = stuff;
+    console.log(stuff);
     let poster = stuff.poster_path;
     $scope.poster = "http://image.tmdb.org/t/p/w500" + poster;
+    let year = stuff.release_date;
+    $scope.yearResponse = moment(year).format('YYYY');
+    $scope.actor1 = stuff.credits.cast[0].name;
+    $scope.actor2 = stuff.credits.cast[1].name;
+    $scope.actor3 = stuff.credits.cast[2].name;
+    $scope.trailer = 'https://www.youtube.com/watch?v=' + stuff.trailers.youtube[0].source;
     });
 }
 ]);

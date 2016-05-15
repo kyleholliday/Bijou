@@ -2,6 +2,7 @@
 @import "neat/neat";
 
 $light-green: #8CC34A;
+$reg-green: #357837;
 $blue-grey: #323F4C;
 
 body {
@@ -65,7 +66,7 @@ form {
 }
 input {
   background: #32373B;
-  border: 2px solid #CCCCCC;
+  border: 2px solid white;
   border-radius: 5px;
   font-size: 18px;
   font-family: AvenirNext-Bold;
@@ -73,6 +74,21 @@ input {
   padding-left: 10px;
   color: white;
   margin-left: 10px;
+}
+#searchButton {
+  color: white;
+  background-color: #32373B;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-family: AvenirNext-Bold;
+  font-size: 15px;
+  margin-left: 5px;
+  padding: 7px;
+}
+#searchButton:hover {
+  cursor: pointer;
+  background-color: $reg-green;
 }
 #guardians {
   width: 1230px;
@@ -83,11 +99,25 @@ input {
   border-radius: 5px;
   border: 2px solid white;
 }
+footer {
+  background-color: #232f3b;
+  padding: 20px;
+  p {
+    margin: 0px 10px;
+    display: inline;
+    font-size: 13px;
+    a {
+      color: $light-green;
+    }
+  }
+}
+#tmdb {
+  text-decoration: none;
+}
 //Main View
 #nowPlaying {
   margin-left: 42px;
   font-family: AvenirNext-Bold;
-  font-size: 24px;
   color: #FFFFFF;
   margin-top: 10px;
   margin-bottom: 0px;
@@ -117,13 +147,9 @@ input {
 #bottomMain{
   @include outer-container;
 }
-#bottomLeft{
-  @include span-columns(6);
-}
-#bottomRight {
-  @include span-columns(6);
-}
+
 //Film View stuff
+
 #filmBig {
   @include outer-container;
 }
@@ -142,13 +168,59 @@ input {
   margin-top: 20px;
   margin-left: 60px;
 }
+#trailerButton {
+  background-color: $light-green;
+  color: white;
+  border: 0px;
+  width: 220px;
+  border-radius: 5px;
+  margin-left: 32%;
+  font-family: AvenirNext-Bold;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#trailerButton:hover {
+  cursor: pointer;
+}
+
 //Search View
+
+#searchResults {
+  padding-left: 38px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+#searchListOne {
+  @include outer-container;
+  list-style-type: none;
+  margin-top: 0px;
+}
+#listItem {
+  @include span-columns(4);
+  @include omega(3n);
+  margin: 0px;
+  margin-top: 10px;
+}
+#searchListTwo {
+  list-style-type: none;
+  padding: 0;
+}
+#searchTopTitle {
+  margin-bottom: 0px;
+}
+#releaseDate {
+  margin-top: 0px;
+  font-family: AvenirNext-Bold;
+}
 #searchPoster {
   width: 250px;
-  height: auto;
-  display: block;
   overflow: hidden;
+  @include span-columns(2 of 4);
+  border-radius: 5px;
+  border: 2px solid white;
+  margin-right: 15px;
 }
 #searchRight {
-  display: flex;;
+  @include span-columns(2 of 4);
 }
