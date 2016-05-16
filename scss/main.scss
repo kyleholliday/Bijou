@@ -2,33 +2,38 @@
 @import "neat/neat";
 
 $light-green: #8CC34A;
-$reg-green: #357837;
+$reg-green: #20BF55;
 $blue-grey: #323F4C;
+$white: #FBFBFF;
+$dark-blue-grey: #232f3b;
+$light-blue: #01BAEF;
+$darker-blue: #0B4F6C;
+$grey: #757575;
 
 body {
   padding: 0;
   margin: 0;
-  background-color: $blue-grey;
-  color: white;
+  background-color: $dark-blue-grey;
+  color: $white;
 }
 h1 {
-  font-family: AvenirNext-Bold;
+  font-family: 'Ubuntu', sans-serif;
 }
 h2 {
-  font-family: AvenirNext-Bold;
+  font-family: 'Ubuntu', sans-serif;
 }
 h3 {
-  font-family: AvenirNext-Bold;
+  font-family: 'Ubuntu', sans-serif;
 }
 p {
-  font-family: AvenirNext-Regular;
+  font-family: 'Ubuntu', sans-serif;
 }
 header {
   background-image: -webkit-linear-gradient(#B4EC51 0%, #429321 100%);
 }
 #toplist {
-  font-family: AvenirNext-Bold;
-  color: #FFFFFF;
+  font-family: 'Ubuntu', sans-serif;
+  color: $white;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -37,9 +42,19 @@ header {
 #logo {
   display: inline;
   float: left;
-  font-size: 50px;
-  color: #FFFFFF;
-  margin-left: 20px;
+  font-size: 60px;
+  color: $white;
+  margin-left: 40px;
+  font-family: AvenirNext-Bold;
+
+  a {
+    padding: 0px;
+    margin: 0px;
+    transition: all ease 0.6s;
+  }
+}
+#logo a:hover {
+  color: $dark-blue-grey;
 }
 .navbar {
   float: left;
@@ -47,60 +62,74 @@ header {
 }
 .toplink {
   display: block;
-  color: white;
+  color: $white;
   text-align: center;
-  padding: 0px 16px;
+  padding: 8px;
   text-decoration: none;
 }
-#buzz{
-  margin-top: 20px;
-  font-size: 24px;
-}
 form {
-  margin-top: 17px;
-  font-family: AvenirNext-Bold;
+  margin-top: 2%;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 24px;
-  color: #FFFFFF;
-  margin-right: 42px;
+  color: $white;
+  margin-right: 40px;
   float: right;
 }
 input {
-  background: #32373B;
-  border: 2px solid white;
+  background: $blue-grey;
+  border: 2px solid $white;
   border-radius: 5px;
   font-size: 18px;
-  font-family: AvenirNext-Bold;
+  font-family: 'Ubuntu', sans-serif;
   padding: 4px;
   padding-left: 10px;
-  color: white;
-  margin-left: 10px;
+  color: $white;
 }
 #searchButton {
-  color: white;
-  background-color: #32373B;
-  color: white;
-  border: 2px solid white;
+  color: $white;
+  background-color: $blue-grey;
+  border: 2px solid $white;
   border-radius: 5px;
-  font-family: AvenirNext-Bold;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 15px;
   margin-left: 5px;
   padding: 7px;
+  transition: all ease 0.6s;
 }
 #searchButton:hover {
   cursor: pointer;
-  background-color: $reg-green;
+  background-color: $white;
+  color: $blue-grey;
 }
 #guardians {
   width: 1230px;
   height: auto;
   margin-left: 25px;
   margin-top: 25px;
+  margin-bottom: 10px;
   border: 0px;
   border-radius: 5px;
-  border: 2px solid white;
+  border: 2px solid $grey;
+}
+.image {
+  position: relative;
+  width: 100%;
+}
+#popcorn {
+  position: absolute;
+  top: 255px;
+  left: 3%;
+  width: 97%;
+  font-size: 40px;
+}
+#fog {
+  padding: 5px 300px 2px;
+  opacity: 0.60;
+  background: #000000;
+  box-shadow: 0 0 7px 7px #000000;
 }
 footer {
-  background-color: #232f3b;
+  background-color: $blue-grey;
   padding: 20px;
   p {
     margin: 0px 10px;
@@ -115,29 +144,32 @@ footer {
   text-decoration: none;
 }
 //Main View
-#nowPlaying {
-  margin-left: 42px;
-  font-family: AvenirNext-Bold;
-  color: #FFFFFF;
-  margin-top: 10px;
+.titles {
+  margin-left: 40px;
+  font-family: 'Ubuntu', sans-serif;
+  color: $white;
   margin-bottom: 0px;
+  margin-top: 0px;
 }
-#mainPlaying {
+.mainUL {
   list-style-type: none;
   padding: 0;
   overflow: hidden;
   margin-left: 60px;
   margin-top: 0px;
+  margin-bottom: 0px;
 }
-.nowPlayingList {
+.mainLI {
   float: left;
   display: inline-block;
   height: auto;
-  padding: 15px;
+  margin: 15px;
   img {
     width: 200px;
+    height: 298px;
     border-radius: 5px;
-    border: 2px solid white;
+    border: 2px solid $grey;
+    transition: all ease 0.6s;
   }
   img:hover {
     border: 2px solid $light-green;
@@ -163,27 +195,54 @@ footer {
 #bigPoster {
   width: 340px;
   height: auto;
-  border: 2px solid white;
+  border: 2px solid $white;
   border-radius: 5px;
   margin-top: 20px;
   margin-left: 60px;
 }
 #trailerButton {
-  background-color: $light-green;
-  color: white;
+  background-color: $light-blue;
+  color: $white;
   border: 0px;
   width: 220px;
   border-radius: 5px;
   margin-left: 32%;
-  font-family: AvenirNext-Bold;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 25px;
   margin-top: 10px;
   margin-bottom: 20px;
+  padding: 10px 10px;
+  transition: all ease 0.6s;
 }
 #trailerButton:hover {
   cursor: pointer;
+  background-color: $darker-blue;
 }
-
+#similarUL {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  margin-left: 60px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.similarLI {
+  float: left;
+  display: inline-block;
+  height: auto;
+  margin: 15px;
+  img {
+    width: 200px;
+    height: 298px;
+    border-radius: 5px;
+    border: 2px solid $grey;
+    transition: all ease 0.6s;
+  }
+  img:hover {
+    border: 2px solid $light-blue;
+    cursor: pointer;
+  }
+}
 //Search View
 
 #searchResults {
@@ -211,15 +270,21 @@ footer {
 }
 #releaseDate {
   margin-top: 0px;
-  font-family: AvenirNext-Bold;
+  font-family: 'Ubuntu', sans-serif;
 }
 #searchPoster {
-  width: 250px;
+  width: 150px;
+  height: 249px;
   overflow: hidden;
   @include span-columns(2 of 4);
   border-radius: 5px;
-  border: 2px solid white;
+  border: 2px solid $white;
   margin-right: 15px;
+  transition: all ease 0.6s;
+}
+#searchPoster:hover {
+  cursor: pointer;
+  border: 2px solid $light-green;
 }
 #searchRight {
   @include span-columns(2 of 4);

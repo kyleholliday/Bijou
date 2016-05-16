@@ -13,13 +13,13 @@
     <h3>{{movie.starring}}</h3>
     <h3 id="filmRuntime">Runtime: {{movie.runtime}} mins</h3>
     <h3>Starring: {{actor1}}, {{actor2}}, {{actor3}}</h3>
-    <!-- <h3>Revenue: ${{movie.revenue}}</h3> -->
-    <h2>Top Reviews</h2>
-    <h3>Review</h3>
-    <h3>Similar Titles</h3>
-    <!-- <h3>{{movie.similarTitles}}</h3>
-    <h3>{{movie.similarTitles}}</h3>
-    <h3>{{movie.similarTitles}}</h3>
-    <h3>{{movie.similarTitles}}</h3> -->
   </div>
 </div>
+<h3 class="titles">Similar Titles</h3>
+<ul id="similarUL">
+  <li class="similarLI"><img ng-click="getMovie(similar1)" ng-src="{{similar1}}" /></li>
+  <li class="similarLI"><img ng-click="getMovie(similarLI)" ng-src="{{similar2}}" /></li>
+  <li class="similarLI"><img ng-click="getMovie(similarLI)" ng-src="{{similar3}}" /></li>
+  <li class="similarLI"><img ng-click="getMovie(similarLI)" ng-src="{{similar4}}" /></li>
+  <li class="similarLI"><img ng-click="getMovie(similarLI)" ng-src="{{similar5}}" /></li>
+</ul>
