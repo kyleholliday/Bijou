@@ -1,20 +1,19 @@
 /* jslint browser: true */
 /* jslint esnext: true */
-module.exports = (function(){
+module.exports = (function() {
   var service = angular.module('FilmModule', []);
 
   let movie = [];
   let nowPlaying = [];
   let newSearch = [];
-  let upcoming =[];
+  let upcoming = [];
 
-  service.factory('FilmService', function ($http) {
-    //let all my variables go here
+  service.factory('FilmService', function($http) {
     $http({
       method: 'get',
       url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=3f5dcd7179e2ff7c3180ca67d78b3936'
     })
-    .then(function(response){
+    .then(function(response) {
       for (let i = 0; i < response.data.results.length; i++) {
         var poster = response.data.results[i].poster_path;
         response.data.results[i].fullPoster = "http://image.tmdb.org/t/p/w300" + poster;
@@ -26,7 +25,7 @@ module.exports = (function(){
       method: 'get',
       url: 'http://api.themoviedb.org/3/movie/upcoming?api_key=3f5dcd7179e2ff7c3180ca67d78b3936'
     })
-    .then(function(response){
+    .then(function(response) {
       for (let i = 0; i < response.data.results.length; i++) {
         var poster = response.data.results[i].poster_path;
         response.data.results[i].fullPoster = "http://image.tmdb.org/t/p/w300" + poster;
@@ -46,7 +45,7 @@ module.exports = (function(){
           method: 'get',
           url: 'https://api.themoviedb.org/3/movie/' + id + '?api_key=3f5dcd7179e2ff7c3180ca67d78b3936&append_to_response=trailers,credits,reviews'
         })
-        .then(function(result){
+        .then(function(result) {
           return result.data;
         });
       },
@@ -55,22 +54,22 @@ module.exports = (function(){
           method: 'get',
           url: 'https://api.themoviedb.org/3/movie/' + id + '/similar?api_key=3f5dcd7179e2ff7c3180ca67d78b3936&append_to_response=trailers,credits'
         })
-        .then(function(similarResult){
+        .then(function(similarResult) {
           return similarResult.data;
         });
       },
-      searchBy: function(query){
-        return $http ({
+      searchBy: function(query) {
+        return $http({
           method: 'get',
-          url: 'http://api.themoviedb.org/3/search/movie?api_key=3f5dcd7179e2ff7c3180ca67d78b3936&query='+ query
-        }).then(function(searchMovies){
+          url: 'http://api.themoviedb.org/3/search/movie?api_key=3f5dcd7179e2ff7c3180ca67d78b3936&query=' + query
+        }).then(function(searchMovies) {
           for (let i = 0; i < searchMovies.data.results.length; i++) {
             var newTitles = searchMovies.data.results;
             angular.copy(newTitles, newSearch);
             return newTitles;
-        }
-      });
-    } //end of searchBy
-  };//end of return
-});
+          }
+        });
+      } //end of searchBy
+    }; //end of return
+  });
 })();
