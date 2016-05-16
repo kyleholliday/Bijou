@@ -8,7 +8,7 @@ $white: #FBFBFF;
 $dark-blue-grey: #232f3b;
 $light-blue: #01BAEF;
 $darker-blue: #0B4F6C;
-$grey: #757575;
+$grey: #a29c9c;
 
 body {
   padding: 0;
@@ -109,7 +109,7 @@ input {
   margin-bottom: 10px;
   border: 0px;
   border-radius: 5px;
-  border: 2px solid $grey;
+  border: 2px solid $white;
 }
 .image {
   position: relative;
@@ -124,7 +124,7 @@ input {
 }
 #fog {
   padding: 5px 300px 2px;
-  opacity: 0.60;
+  opacity: 0.70;
   background: #000000;
   box-shadow: 0 0 7px 7px #000000;
 }
@@ -142,6 +142,14 @@ footer {
 }
 #tmdb {
   text-decoration: none;
+}
+#octocat {
+  width: 19px;
+  height: auto;
+  margin-bottom: -4px;
+}
+#octocat:hover {
+  opacity: .5;
 }
 //Main View
 .titles {
@@ -168,11 +176,11 @@ footer {
     width: 200px;
     height: 298px;
     border-radius: 5px;
-    border: 2px solid $grey;
+    border: 2px solid $white;
     transition: all ease 0.6s;
   }
   img:hover {
-    border: 2px solid $light-green;
+    border: 2px solid $light-blue;
     cursor: pointer;
   }
 }
@@ -199,6 +207,31 @@ footer {
   border-radius: 5px;
   margin-top: 20px;
   margin-left: 60px;
+}
+#filmTitle {
+  margin-bottom: 0px;
+}
+#filmYear {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+#filmDirector {
+  margin-top: 5px;
+}
+#synopsis {
+  font-size: 18px;
+  color: $grey;
+}
+#starringList {
+  list-style-type: none;
+  padding-left: 0px;
+  margin-top: 5px;
+  li {
+    font-family: 'Ubuntu', sans-serif;
+  }
+}
+#starring {
+  margin-bottom: 0px;
 }
 #trailerButton {
   background-color: $light-blue;
@@ -235,7 +268,7 @@ footer {
     width: 200px;
     height: 298px;
     border-radius: 5px;
-    border: 2px solid $grey;
+    border: 2px solid $white;
     transition: all ease 0.6s;
   }
   img:hover {

@@ -9,6 +9,7 @@ module.exports = (function() {
   let upcoming = [];
 
   service.factory('FilmService', function($http) {
+
     $http({
       method: 'get',
       url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=3f5dcd7179e2ff7c3180ca67d78b3936'
@@ -21,6 +22,7 @@ module.exports = (function() {
       angular.copy(response.data.results, nowPlaying);
       return response;
     });
+
     $http({
       method: 'get',
       url: 'http://api.themoviedb.org/3/movie/upcoming?api_key=3f5dcd7179e2ff7c3180ca67d78b3936'
@@ -33,6 +35,7 @@ module.exports = (function() {
       angular.copy(response.data.results, upcoming);
       return response;
     });
+
     return {
       getNowPlaying: function() {
         return nowPlaying;

@@ -6,16 +6,22 @@
   </div>
 
   <div id="filmRight">
-    <h1>{{movie.title}}</h1>
-    <h2>{{yearResponse}}</h2>
-    <h2>{{movie.director}}Directed By:</h2>
-    <p>{{movie.overview}}</p>
+    <h1 id="filmTitle">{{movie.title}}</h1>
+    <h2 id="filmYear">{{yearResponse}}</h2>
+    <h2 id="filmDirector">{{movie.director}}Directed By: Director</h2>
+    <p id="synopsis">{{movie.overview}}</p>
     <h3>{{movie.starring}}</h3>
     <h3 id="filmRuntime">Runtime: {{movie.runtime}} mins</h3>
-    <h3>Starring: {{actor1}}, {{actor2}}, {{actor3}}</h3>
+    <h3 id="starring">Starring:</h3>
+      <ul id= "starringList">
+        <li>{{actor1}}</li>
+        <li>{{actor2}}</li>
+        <li>{{actor3}}</li>
+        <li>{{actor4}}</li>
+    </ul>
   </div>
 </div>
-<h3 class="titles">Similar Titles</h3>
+<h2 class="titles">Similar Titles</h2>
 <ul id="similarUL">
   <li class="similarLI"><img ng-click="getMovie(similar1)" ng-src="{{similar1}}" /></li>
   <li class="similarLI"><img ng-click="getMovie(similarLI)" ng-src="{{similar2}}" /></li>

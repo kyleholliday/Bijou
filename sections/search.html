@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <h1 id="searchResults">Search Results for "{{queryOne}}"</h1>
 <ul id="searchListOne">
-  <li ng-repeat="search in searched | limitTo: 9" id="listItem">
+  <li ng-repeat="search in searched | limitTo: 6" id="listItem">
     <img id="searchPoster" ng-click="getMovie(search)" ng-src="http://image.tmdb.org/t/p/w300/{{search.poster_path}}"/>
     <div id="searchRight">
       <ul id="searchListTwo">

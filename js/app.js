@@ -7,7 +7,7 @@ require('./service');
 
 var app = angular.module('BijouApp', ['ngRoute', 'FilmModule']);
 
-// Router
+//Router
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/main', {
@@ -31,6 +31,7 @@ app.config(['$routeProvider', function($routeProvider) {
 app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$location', function($scope, $http, FilmService, $location) {
   $scope.nowPlaying = FilmService.getNowPlaying();
   $scope.upcoming = FilmService.getUpcoming();
+
   $scope.getMovie = function(search) {
     var title = $location.path('/film/' + search.id);
   };
@@ -41,6 +42,7 @@ app.controller('SearchViewController', ['$scope', '$http', 'FilmService', '$loca
   FilmService.searchBy($routeParams.query).then(function(searchedMovies) {
     $scope.searched = searchedMovies;
       $scope.queryOne = $routeParams.query;
+      
       $scope.getMovie = function(movie) {
         var title = $location.path('/film/' + movie.id);
       };
@@ -60,6 +62,7 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
     $scope.actor1 = stuff.credits.cast[0].name;
     $scope.actor2 = stuff.credits.cast[1].name;
     $scope.actor3 = stuff.credits.cast[2].name;
+    $scope.actor4 = stuff.credits.cast[3].name;
     $scope.trailer = 'https://www.youtube.com/watch?v=' + stuff.trailers.youtube[0].source;
   });
   FilmService.getSimilar($routeParams.filmId).then(function(stuffTwo) {
