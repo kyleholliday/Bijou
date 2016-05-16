@@ -8,7 +8,7 @@
   <div id="filmRight">
     <h1 id="filmTitle">{{movie.title}}</h1>
     <h2 id="filmYear">{{yearResponse}}</h2>
-    <h2 id="filmDirector">{{movie.director}}Directed By: Director</h2>
+    <h2 id="filmDirector">{{movie.director}}Directed By: {{director}}</h2>
     <p id="synopsis">{{movie.overview}}</p>
     <h3>{{movie.starring}}</h3>
     <h3 id="filmRuntime">Runtime: {{movie.runtime}} mins</h3>
@@ -22,10 +22,8 @@
   </div>
 </div>
 <h2 class="titles">Similar Titles</h2>
-<ul id="similarUL">
-  <li class="similarLI"><img ng-click="getMovie(similar1)" ng-src="{{similar1}}" /></li>
-  <li class="similarLI"><img ng-click="getMovie(similarLI)" ng-src="{{similar2}}" /></li>
-  <li class="similarLI"><img ng-click="getMovie(similarLI)" ng-src="{{similar3}}" /></li>
-  <li class="similarLI"><img ng-click="getMovie(similarLI)" ng-src="{{similar4}}" /></li>
-  <li class="similarLI"><img ng-click="getMovie(similarLI)" ng-src="{{similar5}}" /></li>
+<ul id = "similarUL">
+  <li class= "similarLI" ng-repeat="movie in movieTwo | limitTo: 5">
+    <img ng-click="getMovie(movie)" ng-src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}" />
+  </li>
 </ul>
