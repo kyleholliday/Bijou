@@ -1,4 +1,5 @@
-# Bijou
+![alt](https://travis-ci.org/kyleholliday/Bijou.svg?branch=master)
+# Bijou 
 Bijou is an Angular-based movie database app. Users can see what's playing now, popular movies, staff picks, and classics, as well as watch movie trailers. Users can also search for movies using the Film Finder feature.
 
 ## Overview
