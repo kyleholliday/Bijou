@@ -13,11 +13,11 @@
     <h3>{{movie.starring}}</h3>
     <h3 id="filmRuntime">Runtime: {{movie.runtime}} mins</h3>
     <h3 id="starring">Starring:</h3>
-      <ul id= "starringList">
-        <li>{{actor1}}</li>
-        <li>{{actor2}}</li>
-        <li>{{actor3}}</li>
-        <li>{{actor4}}</li>
+      <ul id= "starringUL">
+        <li class= "starringLI" ng-repeat="cast in casts | limitTo: 4">
+          <img ng-src="http://image.tmdb.org/t/p/w300/{{cast.profile_path}}" />
+          <figcaption id="castName">{{cast.name}}</figcaption>
+        </li>
     </ul>
   </div>
 </div>

@@ -52,6 +52,15 @@ module.exports = (function() {
           return result.data;
         });
       },
+      getFilmsbyCast: function(castId) {
+        return $http ({
+          method: 'get',
+          url: 'http://api.themoviedb.org/3/discover/movie?api_key=3f5dcd7179e2ff7c3180ca67d78b3936&with_cast=' + castId + '&sort_by=popularity.desc'
+        })
+        .then(function(result){
+          return result.data;
+        });
+      },
       getSimilar: function(id) {
         return $http({
           method: 'get',

@@ -2,7 +2,7 @@
 <h1 id="searchResults">Search Results for "{{queryOne}}"</h1>
 <ul id="searchListOne">
   <li ng-repeat="search in searched | limitTo: 6" id="listItem">
-    <img id="searchPoster" ng-click="getMovie(search)" ng-src="http://image.tmdb.org/t/p/w300/{{search.poster_path}}"/>
+    <img id="searchPoster" ng-click="getMovie(search)" ng-src="http://image.tmdb.org/t/p/w300/{{search.poster_path}}" sr-fallback/>
     <div id="searchRight">
       <ul id="searchListTwo">
         <li><h3 id="searchTopTitle">{{search.title}}</h3></li>

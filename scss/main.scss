@@ -222,16 +222,30 @@ footer {
   font-size: 18px;
   color: $grey;
 }
-#starringList {
-  list-style-type: none;
-  padding-left: 0px;
-  margin-top: 5px;
-  li {
-    font-family: 'Ubuntu', sans-serif;
-  }
-}
 #starring {
   margin-bottom: 0px;
+}
+#starringUL {
+  list-style-type: none;
+  padding: 0px;
+  overflow: hidden;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.starringLI {
+  display: inline-block;
+  height: auto;
+  margin: 10px;
+  img {
+    width: 140px;
+    height: 208px;
+    border-radius: 5px;
+    border:2px solid $white;
+  }
+}
+figcaption {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
 }
 #trailerButton {
   background-color: $light-blue;

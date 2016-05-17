@@ -14,10 +14,17 @@
   <ul class="mainUL">
     <li class="mainLI" ng-click="getMovie(movie)" ng-repeat="movie in upcoming | limitTo: 5"><a class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" /></a></li>
   </ul>
-</div><h2 class="titles">Staff Picks</h2>
+</div>
+<h2 class="titles">Staff Picks</h2>
 <div class="row">
   <ul class="mainUL">
-    <li class="mainLI" ng-click="getMovie(pick)" ng-repeat="pick in picks | limitTo: 5"><a class="nowPlayingLink"><img ng-src="http://image.tmdb.org/t/p/w300/{{pick.poster_path}}" /></a></li>
+    <li class="mainLI" ng-click="getMovie(pick)" ng-repeat="pick in picks | limitTo: 6"><a class="nowPlayingLink"><img ng-src="http://image.tmdb.org/t/p/w300/{{pick.poster_path}}" /></a></li>
+  </ul>
+</div>
+<h2 class="titles">Classic Sci-Fi</h2>
+<div class="row">
+  <ul class="mainUL">
+    <li class="mainLI" ng-click="getMovie(pick)" ng-repeat="pick in scifi | limitTo: 5"><a class="nowPlayingLink"><img ng-src="http://image.tmdb.org/t/p/w300/{{pick.poster_path}}" /></a></li>
   </ul>
 </div>
 <div id="bottomMain">

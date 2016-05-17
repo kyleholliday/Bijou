@@ -22,6 +22,10 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'FilmViewController',
     templateUrl: 'sections/film.html',
   })
+  .when('/cast/:castId', {
+    controller: 'CastViewController',
+    templateUrl: 'sections/cast.html',
+  })
   .otherwise({
     redirectTo: '/main',
   });
@@ -31,9 +35,13 @@ app.config(['$routeProvider', function($routeProvider) {
 app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$location', function($scope, $http, FilmService, $location) {
   $scope.nowPlaying = FilmService.getNowPlaying();
   $scope.upcoming = FilmService.getUpcoming();
-  $scope.picks = [1,2,3];
-  Promise.all([FilmService.getFilmById(270303),FilmService.getFilmById(205596),FilmService.getFilmById(37799),FilmService.getFilmById(264644),FilmService.getFilmById(295699),]).then(function(picks) {
+
+  Promise.all([FilmService.getFilmById(270303),FilmService.getFilmById(294963),FilmService.getFilmById(264660),FilmService.getFilmById(295699),FilmService.getFilmById(310131),]).then(function(picks) {
     $scope.picks = picks;
+    $scope.$apply();
+  });
+  Promise.all([FilmService.getFilmById(62),FilmService.getFilmById(348),FilmService.getFilmById(78),FilmService.getFilmById(1091),FilmService.getFilmById(9426),]).then(function(scifi) {
+    $scope.scifi = scifi;
     $scope.$apply();
   });
   $scope.getMovie = function(search) {
@@ -60,12 +68,9 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
     let poster = stuff.poster_path;
     $scope.poster = "http://image.tmdb.org/t/p/w500" + poster;
     let year = stuff.release_date;
-    $scope.yearResponse = moment(year).format('YYYY');
+    $scope.yearResponse = moment(year).format('MMM Do YYYY');
     $scope.director = stuff.credits.crew[0].name;
-    $scope.actor1 = stuff.credits.cast[0].name;
-    $scope.actor2 = stuff.credits.cast[1].name;
-    $scope.actor3 = stuff.credits.cast[2].name;
-    $scope.actor4 = stuff.credits.cast[3].name;
+    $scope.casts = stuff.credits.cast;
     $scope.trailer = 'https://www.youtube.com/watch?v=' + stuff.trailers.youtube[0].source;
   });
   FilmService.getSimilar($routeParams.filmId).then(function(stuffTwo) {
@@ -76,6 +81,12 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
     };
   });
 }]);
+
+//Cast View Controller
+// app.controller('CastViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
+//   FilmService.getFilmById($routeParams.filmId).then(function(stuff) {
+//   });
+// }]);
 
 //Header Controller
 app.controller('HeaderController', ['$scope', '$http', 'FilmService', '$location', function($scope, $http, FilmService, $location) {
