@@ -241,6 +241,11 @@ footer {
     height: 208px;
     border-radius: 5px;
     border:2px solid $white;
+    transition: ease all 0.6s;
+  }
+  img:hover {
+    border-color: $light-blue;
+    cursor: pointer;
   }
 }
 figcaption {
@@ -290,6 +295,7 @@ figcaption {
     cursor: pointer;
   }
 }
+
 //Search View
 
 #searchResults {
@@ -335,4 +341,14 @@ figcaption {
 }
 #searchRight {
   @include span-columns(2 of 4);
+}
+
+// Cast View
+
+#castMain {
+  @include outer-container;
+}
+#castUL {
+  @include span-columns(10);
+  @include shift(1);
 }

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<!-- <h2>{{nameOne}}</h2> -->
+<div id="castMain">
+  <ul id="castUL">
+    <li class="starringLI" ng-repeat="movie in castMovie | limitTo: 20">
+      <img ng-src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}" ng-click="getMovie(movie)" sr-fallback>
+    </li>
+  </ul>
+</div>

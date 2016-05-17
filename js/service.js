@@ -51,7 +51,7 @@ module.exports = (function() {
         .then(function(result) {
           return result.data;
         });
-      },
+      }, //end of getFilmById
       getFilmsbyCast: function(castId) {
         return $http ({
           method: 'get',
@@ -60,7 +60,7 @@ module.exports = (function() {
         .then(function(result){
           return result.data;
         });
-      },
+      }, //end of getFilmsbyCast
       getSimilar: function(id) {
         return $http({
           method: 'get',
@@ -69,7 +69,7 @@ module.exports = (function() {
         .then(function(similarResult) {
           return similarResult.data;
         });
-      },
+      }, //end of getSimilar
       searchBy: function(query) {
         return $http({
           method: 'get',

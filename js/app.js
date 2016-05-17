@@ -1,11 +1,12 @@
 /* jslint browser: true */
 /* jslint esnext: true */
 var angular = require('angular');
+var angularFallback = require('angular-fallback-image');
 var angularRoute = require('angular-route');
 var moment = require('moment');
 require('./service');
 
-var app = angular.module('BijouApp', ['ngRoute', 'FilmModule']);
+var app = angular.module('BijouApp', ['ngRoute', 'FilmModule', 'angular-fallback-image']);
 
 //Router
 app.config(['$routeProvider', function($routeProvider) {
@@ -69,24 +70,38 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
     $scope.poster = "http://image.tmdb.org/t/p/w500" + poster;
     let year = stuff.release_date;
     $scope.yearResponse = moment(year).format('MMM Do YYYY');
-    $scope.director = stuff.credits.crew[0].name;
+    for (let i = 0; i < stuff.credits.crew.length; i ++) {
+      if (stuff.credits.crew[i].job === "Director") {
+        $scope.director = stuff.credits.crew[i].name;
+      }
+    }
     $scope.casts = stuff.credits.cast;
     $scope.trailer = 'https://www.youtube.com/watch?v=' + stuff.trailers.youtube[0].source;
   });
   FilmService.getSimilar($routeParams.filmId).then(function(stuffTwo) {
     $scope.movieTwo = stuffTwo.results;
-    console.log(stuffTwo);
     $scope.getMovie = function(movie) {
       var title = $location.path('/film/' + movie.id);
     };
   });
+  $scope.getCast = function(cast) {
+    var newCast = $location.path('/cast/' + cast.id);
+  };
+  //set ng-click function here
 }]);
 
 //Cast View Controller
-// app.controller('CastViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
-//   FilmService.getFilmById($routeParams.filmId).then(function(stuff) {
-//   });
-// }]);
+app.controller('CastViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
+  FilmService.getFilmsbyCast($routeParams.castId).then(function(castMovie) {
+    console.log(castMovie);
+    console.log(castMovie.results);
+    $scope.castMovie = castMovie.results;
+    $scope.nameOne = $routeParams.castId;
+    $scope.getMovie = function(movie){
+      var title = $location.path('/film/' + movie.id);
+    };
+  });
+}]);
 
 //Header Controller
 app.controller('HeaderController', ['$scope', '$http', 'FilmService', '$location', function($scope, $http, FilmService, $location) {

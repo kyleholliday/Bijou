@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <div id="filmBig">
   <div id="filmLeft">
-    <img ng-src="{{poster}}" id="bigPoster"/>
+    <img ng-src="{{poster}}" id="bigPoster" sr-fallback />
     <a href="{{trailer}}" target="_blank"><button id="trailerButton">Watch Trailer</button></a>
   </div>
 
@@ -15,7 +15,7 @@
     <h3 id="starring">Starring:</h3>
       <ul id= "starringUL">
         <li class= "starringLI" ng-repeat="cast in casts | limitTo: 4">
-          <img ng-src="http://image.tmdb.org/t/p/w300/{{cast.profile_path}}" />
+          <img ng-click ="getCast(cast)" ng-src="http://image.tmdb.org/t/p/w300/{{cast.profile_path}}" sr-fallback />
           <figcaption id="castName">{{cast.name}}</figcaption>
         </li>
     </ul>
@@ -24,6 +24,6 @@
 <h2 class="titles">Similar Titles</h2>
 <ul id = "similarUL">
   <li class= "similarLI" ng-repeat="movie in movieTwo | limitTo: 5">
-    <img ng-click="getMovie(movie)" ng-src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}" />
+    <img ng-click="getMovie(movie)" ng-src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}" sr-fallback />
   </li>
 </ul>
