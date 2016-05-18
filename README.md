@@ -5,7 +5,7 @@ Bijou is an Angular-based movie database app. Users can see what's playing now, 
 ## Overview
 
 ### Key Features
-- Box Office, Movie Details, Film Finder Search, Similar Titles
+- Now Playing, Upcoming, Movie Details, Film Finder Search, Similar Titles, Actor and Director Filmography
 
 ### Languages and Libraries
 - HTML, CSS, Javascript
