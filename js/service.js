@@ -61,6 +61,15 @@ module.exports = (function() {
           return result.data;
         });
       }, //end of getFilmsbyCast
+      getBio: function(castId) {
+        return $http ({
+          method:'get',
+          url: 'https://api.themoviedb.org/3/person/' + castId + '?api_key=3f5dcd7179e2ff7c3180ca67d78b3936'
+          })
+          .then(function(bio){
+            return bio.data;
+          });
+      },
       getSimilar: function(id) {
         return $http({
           method: 'get',

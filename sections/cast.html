@@ -3,7 +3,12 @@
 <div id="castMain">
   <ul id="castUL">
     <li class="starringLI" ng-repeat="movie in castMovie | limitTo: 20">
-      <img ng-src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}" ng-click="getMovie(movie)" sr-fallback>
+      <img ng-src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}" ng-click="getMovie(movie)" sr-fallback="assets/nope.png">
     </li>
   </ul>
+  <div id="castBio">
+    <img id ="bioPic" ng-src="http://image.tmdb.org/t/p/w300/{{bio.profile_path}}" sr-fallback="assets/nope.png"/>
+    <h1 id="bioName">{{bio.name}}</h1>
+    <p>{{bio.biography}}</p>
+  </div>
 </div>

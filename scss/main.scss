@@ -10,6 +10,7 @@ $light-blue: #01BAEF;
 $darker-blue: #0B4F6C;
 $grey: #a29c9c;
 
+// Index Elements, Navbar and Footer
 body {
   padding: 0;
   margin: 0;
@@ -42,13 +43,13 @@ header {
 #logo {
   display: inline;
   float: left;
-  font-size: 60px;
+  font-size: 70px;
   color: $white;
   margin-left: 40px;
-  font-family: AvenirNext-Bold;
-
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
   a {
-    padding: 0px;
+    padding: 2px;
     margin: 0px;
     transition: all ease 0.6s;
   }
@@ -74,16 +75,18 @@ form {
   color: $white;
   margin-right: 40px;
   float: right;
+  margin-top: 25px;
 }
 input {
   background: $blue-grey;
   border: 2px solid $white;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Ubuntu', sans-serif;
   padding: 4px;
   padding-left: 10px;
   color: $white;
+  width: 280px;
 }
 #searchButton {
   color: $white;
@@ -91,7 +94,7 @@ input {
   border: 2px solid $white;
   border-radius: 5px;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   margin-left: 5px;
   padding: 7px;
   transition: all ease 0.6s;
@@ -102,14 +105,12 @@ input {
   color: $blue-grey;
 }
 #guardians {
-  width: 1230px;
+  width: 100%;
   height: auto;
-  margin-left: 25px;
-  margin-top: 25px;
   margin-bottom: 10px;
   border: 0px;
-  border-radius: 5px;
-  border: 2px solid $white;
+  border-bottom: 2px solid $grey;
+  border-top: 2px solid $grey;
 }
 .image {
   position: relative;
@@ -117,13 +118,12 @@ input {
 }
 #popcorn {
   position: absolute;
-  top: 255px;
-  left: 3%;
-  width: 97%;
-  font-size: 40px;
+  top: 235px;
+  width: 100%;
+  font-size: 44px;
 }
 #fog {
-  padding: 5px 300px 2px;
+  padding: 5px 313px 2px;
   opacity: 0.70;
   background: #000000;
   box-shadow: 0 0 7px 7px #000000;
@@ -136,17 +136,15 @@ footer {
     display: inline;
     font-size: 13px;
     a {
+      text-decoration: none;
       color: $light-green;
     }
   }
 }
-#tmdb {
-  text-decoration: none;
-}
 #octocat {
-  width: 19px;
+  width: 26px;
   height: auto;
-  margin-bottom: -4px;
+  margin-bottom: -6px;
 }
 #octocat:hover {
   opacity: .5;
@@ -188,8 +186,7 @@ footer {
   @include outer-container;
 }
 
-//Film View stuff
-
+//Film View
 #filmBig {
   @include outer-container;
 }
@@ -297,7 +294,6 @@ figcaption {
 }
 
 //Search View
-
 #searchResults {
   padding-left: 38px;
   margin-bottom: 0px;
@@ -337,18 +333,33 @@ figcaption {
 }
 #searchPoster:hover {
   cursor: pointer;
-  border: 2px solid $light-green;
+  border: 2px solid $light-blue;
 }
 #searchRight {
   @include span-columns(2 of 4);
 }
 
 // Cast View
-
 #castMain {
   @include outer-container;
 }
 #castUL {
-  @include span-columns(10);
-  @include shift(1);
+  @include span-columns(9);
+}
+#castBio {
+  @include span-columns(3);
+  h1 {
+    margin-top: 1px;
+    margin-bottom: 2px;
+  }
+  p {
+    margin-top: 1px;
+  }
+}
+#bioPic {
+  width:230px;
+  height: auto;
+  margin-top: 25px;
+  border-radius: 5px;
+  border: 2px solid $grey;
 }

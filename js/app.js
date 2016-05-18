@@ -87,14 +87,14 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
   $scope.getCast = function(cast) {
     var newCast = $location.path('/cast/' + cast.id);
   };
-  //set ng-click function here
 }]);
 
 //Cast View Controller
 app.controller('CastViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
+  FilmService.getBio($routeParams.castId).then(function(bio){
+    $scope.bio = bio;
+  });
   FilmService.getFilmsbyCast($routeParams.castId).then(function(castMovie) {
-    console.log(castMovie);
-    console.log(castMovie.results);
     $scope.castMovie = castMovie.results;
     $scope.nameOne = $routeParams.castId;
     $scope.getMovie = function(movie){
