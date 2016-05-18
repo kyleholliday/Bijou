@@ -27,6 +27,10 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'CastViewController',
     templateUrl: 'sections/cast.html',
   })
+  .when('/director/:directorId', {
+    controller: 'DirectorViewController',
+    templateUrl: 'sections/director.html',
+  })
   .otherwise({
     redirectTo: '/main',
   });
@@ -41,6 +45,7 @@ app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$locati
     $scope.picks = picks;
     $scope.$apply();
   });
+
   Promise.all([FilmService.getFilmById(62),FilmService.getFilmById(348),FilmService.getFilmById(78),FilmService.getFilmById(1091),FilmService.getFilmById(9426),]).then(function(scifi) {
     $scope.scifi = scifi;
     $scope.$apply();
@@ -53,6 +58,7 @@ app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$locati
 //Search View Controller
 app.controller('SearchViewController', ['$scope', '$http', 'FilmService', '$location', '$routeParams', function($scope, $http, FilmService, $location, $routeParams) {
   FilmService.searchBy($routeParams.query).then(function(searchedMovies) {
+    console.log(searchedMovies);
     $scope.searched = searchedMovies;
     $scope.queryOne = $routeParams.query;
     $scope.getMovie = function(movie) {
@@ -70,9 +76,11 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
     $scope.poster = "http://image.tmdb.org/t/p/w500" + poster;
     let year = stuff.release_date;
     $scope.yearResponse = moment(year).format('MMM Do YYYY');
+
+    $scope.directors = [];
     for (let i = 0; i < stuff.credits.crew.length; i ++) {
       if (stuff.credits.crew[i].job === "Director") {
-        $scope.director = stuff.credits.crew[i].name;
+        $scope.directors.push(stuff.credits.crew[i]);
       }
     }
     $scope.casts = stuff.credits.cast;
@@ -87,6 +95,9 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
   $scope.getCast = function(cast) {
     var newCast = $location.path('/cast/' + cast.id);
   };
+  $scope.getDirector = function(director) {
+    var newDirector = $location.path('/director/' + director.id);
+  };
 }]);
 
 //Cast View Controller
@@ -96,7 +107,20 @@ app.controller('CastViewController', ['$scope', '$http', 'FilmService', '$routeP
   });
   FilmService.getFilmsbyCast($routeParams.castId).then(function(castMovie) {
     $scope.castMovie = castMovie.results;
-    $scope.nameOne = $routeParams.castId;
+    $scope.getMovie = function(movie){
+      var title = $location.path('/film/' + movie.id);
+    };
+  });
+}]);
+
+//Director View Controller
+app.controller('DirectorViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location){
+  FilmService.getBio($routeParams.directorId).then(function(bio){
+    $scope.bio = bio;
+  });
+  FilmService.getDirector($routeParams.directorId).then(function(directorMovie)
+  {
+    $scope.directorMovie = directorMovie.results;
     $scope.getMovie = function(movie){
       var title = $location.path('/film/' + movie.id);
     };

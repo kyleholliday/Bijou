@@ -70,6 +70,15 @@ module.exports = (function() {
             return bio.data;
           });
       },
+      getDirector: function(id){
+        return $http ({
+          method: 'get',
+          url: 'https://api.themoviedb.org/3/discover/movie?api_key=3f5dcd7179e2ff7c3180ca67d78b3936&with_crew=' + id + '&sort_by=popularity.desc'
+        })
+        .then(function(director){
+          return director.data;
+        });
+      },
       getSimilar: function(id) {
         return $http({
           method: 'get',

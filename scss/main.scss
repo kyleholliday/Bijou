@@ -149,6 +149,7 @@ footer {
 #octocat:hover {
   opacity: .5;
 }
+
 //Main View
 .titles {
   margin-left: 40px;
@@ -207,13 +208,33 @@ footer {
 }
 #filmTitle {
   margin-bottom: 0px;
+  font-size: 40px;
 }
 #filmYear {
   margin-top: 5px;
   margin-bottom: 0px;
 }
-#filmDirector {
-  margin-top: 5px;
+#directedBy {
+  margin: 5px 0px 5px;
+}
+#directorUL {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  li {
+    font-family: 'Ubuntu', sans-serif;
+    color: $light-green;
+  }
+  p {
+    margin: 5px 0px 5px;
+    font-size: 25px;
+    transition: ease all 0.6s;
+    display: inline;
+  }
+  p:hover {
+    color: $light-blue;
+    cursor: pointer;
+  }
 }
 #synopsis {
   font-size: 18px;
@@ -305,14 +326,17 @@ figcaption {
   margin-top: 0px;
 }
 #listItem {
-  @include span-columns(4);
-  @include omega(3n);
+  @include span-columns(3);
+  @include omega(4n);
   margin: 0px;
   margin-top: 10px;
 }
 #searchListTwo {
   list-style-type: none;
   padding: 0;
+  h3, h4 {
+    text-align:left;
+  }
 }
 #searchTopTitle {
   margin-bottom: 0px;
@@ -325,7 +349,7 @@ figcaption {
   width: 150px;
   height: 249px;
   overflow: hidden;
-  @include span-columns(2 of 4);
+  @include span-columns(2 of 3);
   border-radius: 5px;
   border: 2px solid $white;
   margin-right: 15px;
@@ -336,7 +360,7 @@ figcaption {
   border: 2px solid $light-blue;
 }
 #searchRight {
-  @include span-columns(2 of 4);
+  @include span-columns(1 of 3);
 }
 
 // Cast View

@@ -7,8 +7,13 @@
 
   <div id="filmRight">
     <h1 id="filmTitle">{{movie.title}}</h1>
+    <h2 id="directedBy">Directed By:</h2>
+    <ul id="directorUL">
+      <li id="director" ng-repeat="director in directors | limitTo: 3">
+        <p ng-click="getDirector(director)">{{director.name}}</p>
+      </li>
+    </ul>
     <h2 id="filmYear">{{yearResponse}}</h2>
-    <h2 id="filmDirector">Directed By: {{director}}</h2>
     <p id="synopsis">{{movie.overview}}</p>
     <h3>{{movie.starring}}</h3>
     <h3 id="filmRuntime">Runtime: {{movie.runtime}} mins</h3>
