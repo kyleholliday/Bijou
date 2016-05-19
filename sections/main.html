@@ -18,16 +18,6 @@
 <h2 class="titles">Staff Picks</h2>
 <div class="row">
   <ul class="mainUL">
-    <li class="mainLI" ng-click="getMovie(pick)" ng-repeat="pick in picks | limitTo: 6"><a class="nowPlayingLink"><img ng-src="http://image.tmdb.org/t/p/w300/{{pick.poster_path}}" sr-fallback="assets/nope.png" /></a></li>
+    <li class="mainLI" ng-click="getMovie(pick)" ng-repeat="pick in picks | limitTo: 10"><a class="nowPlayingLink"><img ng-src="http://image.tmdb.org/t/p/w300/{{pick.poster_path}}" sr-fallback="assets/nope.png" /></a></li>
   </ul>
-</div>
-<h2 class="titles">Classic Sci-Fi</h2>
-<div class="row">
-  <ul class="mainUL">
-    <li class="mainLI" ng-click="getMovie(pick)" ng-repeat="pick in scifi | limitTo: 5"><a class="nowPlayingLink"><img ng-src="http://image.tmdb.org/t/p/w300/{{pick.poster_path}}" sr-fallback="assets/nope.png" /></a></li>
-  </ul>
-</div>
-<div id="bottomMain">
-  <div id="bottomRight">
-  </div>
 </div>

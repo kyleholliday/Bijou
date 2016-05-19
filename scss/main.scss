@@ -223,7 +223,7 @@ footer {
   list-style-type: none;
   li {
     font-family: 'Ubuntu', sans-serif;
-    color: $light-green;
+    color: $light-blue;
   }
   p {
     margin: 5px 0px 5px;
@@ -232,7 +232,7 @@ footer {
     display: inline;
   }
   p:hover {
-    color: $light-blue;
+    color: $light-green;
     cursor: pointer;
   }
 }
@@ -254,6 +254,7 @@ footer {
   display: inline-block;
   height: auto;
   margin: 10px;
+  vertical-align: top;
   img {
     width: 140px;
     height: 208px;
@@ -269,6 +270,7 @@ footer {
 figcaption {
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
+  width: 140px;
 }
 #trailerButton {
   background-color: $light-blue;
@@ -298,7 +300,7 @@ figcaption {
 }
 .similarLI {
   float: left;
-  display: inline-block;
+  display: inline;
   height: auto;
   margin: 15px;
   img {
@@ -369,6 +371,7 @@ figcaption {
 }
 #castUL {
   @include span-columns(9);
+  margin-right: 0px;
 }
 #castBio {
   @include span-columns(3);

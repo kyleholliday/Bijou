@@ -8,7 +8,7 @@ require('./service');
 
 var app = angular.module('BijouApp', ['ngRoute', 'FilmModule', 'angular-fallback-image']);
 
-//Router
+// Router
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/main', {
@@ -36,26 +36,22 @@ app.config(['$routeProvider', function($routeProvider) {
   });
 }]);
 
-//Main Feed View controller
+// Main Feed View controller
 app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$location', function($scope, $http, FilmService, $location) {
   $scope.nowPlaying = FilmService.getNowPlaying();
   $scope.upcoming = FilmService.getUpcoming();
 
-  Promise.all([FilmService.getFilmById(270303),FilmService.getFilmById(294963),FilmService.getFilmById(264660),FilmService.getFilmById(295699),FilmService.getFilmById(310131),]).then(function(picks) {
+  Promise.all([FilmService.getFilmById(264660),FilmService.getFilmById(294963),FilmService.getFilmById(270303),FilmService.getFilmById(295699),FilmService.getFilmById(310131),FilmService.getFilmById(273481),FilmService.getFilmById(244786),FilmService.getFilmById(271714),FilmService.getFilmById(205596),FilmService.getFilmById(293660)]).then(function(picks) {
     $scope.picks = picks;
     $scope.$apply();
   });
-
-  Promise.all([FilmService.getFilmById(62),FilmService.getFilmById(348),FilmService.getFilmById(78),FilmService.getFilmById(1091),FilmService.getFilmById(9426),]).then(function(scifi) {
-    $scope.scifi = scifi;
-    $scope.$apply();
-  });
+  
   $scope.getMovie = function(search) {
     var title = $location.path('/film/' + search.id);
   };
 }]);
 
-//Search View Controller
+// Search View Controller
 app.controller('SearchViewController', ['$scope', '$http', 'FilmService', '$location', '$routeParams', function($scope, $http, FilmService, $location, $routeParams) {
   FilmService.searchBy($routeParams.query).then(function(searchedMovies) {
     console.log(searchedMovies);
@@ -67,7 +63,7 @@ app.controller('SearchViewController', ['$scope', '$http', 'FilmService', '$loca
   });
 }]);
 
-//Film View Controller
+// Film View Controller
 app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
   FilmService.getFilmById($routeParams.filmId).then(function(stuff) {
     $scope.movie = stuff;
@@ -100,7 +96,7 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
   };
 }]);
 
-//Cast View Controller
+// Cast View Controller
 app.controller('CastViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
   FilmService.getBio($routeParams.castId).then(function(bio){
     $scope.bio = bio;
@@ -113,7 +109,7 @@ app.controller('CastViewController', ['$scope', '$http', 'FilmService', '$routeP
   });
 }]);
 
-//Director View Controller
+// Director View Controller
 app.controller('DirectorViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location){
   FilmService.getBio($routeParams.directorId).then(function(bio){
     $scope.bio = bio;
@@ -127,7 +123,7 @@ app.controller('DirectorViewController', ['$scope', '$http', 'FilmService', '$ro
   });
 }]);
 
-//Header Controller
+// Header Controller
 app.controller('HeaderController', ['$scope', '$http', 'FilmService', '$location', function($scope, $http, FilmService, $location) {
   $scope.searchMovie = function() {
     $location.path('/search/' + $scope.searchTerm);

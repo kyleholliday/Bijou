@@ -18,14 +18,15 @@
     <h3>{{movie.starring}}</h3>
     <h3 id="filmRuntime">Runtime: {{movie.runtime}} mins</h3>
     <h3 id="starring">Starring:</h3>
-      <ul id= "starringUL">
-        <li class= "starringLI" ng-repeat="cast in casts | limitTo: 4">
-          <img ng-click ="getCast(cast)" ng-src="http://image.tmdb.org/t/p/w300/{{cast.profile_path}}" sr-fallback="assets/nope.png" />
-          <figcaption id="castName">{{cast.name}}</figcaption>
-        </li>
+    <ul id= "starringUL">
+      <li class= "starringLI" ng-repeat="cast in casts | limitTo: 4">
+        <img ng-click ="getCast(cast)" ng-src="http://image.tmdb.org/t/p/w300/{{cast.profile_path}}" sr-fallback="assets/nope.png" />
+        <figcaption id="castName">{{cast.name}}</figcaption>
+      </li>
     </ul>
   </div>
 </div>
+
 <h2 class="titles">Similar Titles</h2>
 <ul id = "similarUL">
   <li class= "similarLI" ng-repeat="movie in movieTwo | limitTo: 5">

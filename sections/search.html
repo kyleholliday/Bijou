@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <h1 id="searchResults">Search Results for "{{queryOne}}"</h1>
 <ul id="searchListOne">
-  <li ng-repeat="search in searched | limitTo: 6" id="listItem">
-    <img id="searchPoster" ng-click="getMovie(search)" ng-src="http://image.tmdb.org/t/p/w300/{{search.poster_path}}" sr-fallback="assets/nope.png"/>
-    <div id="searchRight">
-      <ul id="searchListTwo">
-        <li><h3 id="searchTopTitle">{{search.title}}</h3></li>
-        <li><h4 id="releaseDate">{{search.release_date}}</h4></li>
-      </ul>
-    </div>
+  <li class="starringLI" ng-repeat="search in searched | limitTo: 14">
+    <img ng-click="getMovie(search)" ng-src="http://image.tmdb.org/t/p/w300/{{search.poster_path}}" sr-fallback="assets/nope.png"/>
+    <figcaption>{{search.title}}</figcaption>
   </li>
 </ul>
