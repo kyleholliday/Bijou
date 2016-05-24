@@ -41,11 +41,11 @@ app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$locati
   $scope.nowPlaying = FilmService.getNowPlaying();
   $scope.upcoming = FilmService.getUpcoming();
 
-  Promise.all([FilmService.getFilmById(264660),FilmService.getFilmById(294963),FilmService.getFilmById(270303),FilmService.getFilmById(295699),FilmService.getFilmById(310131),FilmService.getFilmById(273481),FilmService.getFilmById(244786),FilmService.getFilmById(271714),FilmService.getFilmById(205596),FilmService.getFilmById(293660)]).then(function(picks) {
+  Promise.all([FilmService.getFilmById(294963),FilmService.getFilmById(264660),FilmService.getFilmById(271714),FilmService.getFilmById(310131),FilmService.getFilmById(295699),FilmService.getFilmById(244786),FilmService.getFilmById(273481),FilmService.getFilmById(270303),FilmService.getFilmById(152603),FilmService.getFilmById(205596)]).then(function(picks) {
     $scope.picks = picks;
     $scope.$apply();
   });
-  
+
   $scope.getMovie = function(search) {
     var title = $location.path('/film/' + search.id);
   };
@@ -54,7 +54,6 @@ app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$locati
 // Search View Controller
 app.controller('SearchViewController', ['$scope', '$http', 'FilmService', '$location', '$routeParams', function($scope, $http, FilmService, $location, $routeParams) {
   FilmService.searchBy($routeParams.query).then(function(searchedMovies) {
-    console.log(searchedMovies);
     $scope.searched = searchedMovies;
     $scope.queryOne = $routeParams.query;
     $scope.getMovie = function(movie) {
@@ -67,7 +66,6 @@ app.controller('SearchViewController', ['$scope', '$http', 'FilmService', '$loca
 app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
   FilmService.getFilmById($routeParams.filmId).then(function(stuff) {
     $scope.movie = stuff;
-    console.log(stuff);
     let poster = stuff.poster_path;
     $scope.poster = "http://image.tmdb.org/t/p/w500" + poster;
     let year = stuff.release_date;

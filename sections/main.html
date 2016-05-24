@@ -15,7 +15,7 @@
     <li class="mainLI" ng-click="getMovie(movie)" ng-repeat="movie in upcoming | limitTo: 10"><a class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" sr-fallback="assets/nope.png" /></a></li>
   </ul>
 </div>
-<h2 class="titles">Staff Picks</h2>
+<h2 class="titles">Bijou Picks</h2>
 <div class="row">
   <ul class="mainUL">
     <li class="mainLI" ng-click="getMovie(pick)" ng-repeat="pick in picks | limitTo: 10"><a class="nowPlayingLink"><img ng-src="http://image.tmdb.org/t/p/w300/{{pick.poster_path}}" sr-fallback="assets/nope.png" /></a></li>
