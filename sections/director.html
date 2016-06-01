@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <div id="castMain">
+  <h2 id="bioPopular">{{bio.name}} as Director and/or Producer</h2>
   <ul id="castUL">
     <li class="starringLI" ng-repeat="movie in directorMovie | limitTo: 20">
       <img ng-src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}" ng-click="getMovie(movie)" sr-fallback="assets/nope.png" />

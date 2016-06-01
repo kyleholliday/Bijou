@@ -66,7 +66,10 @@ app.controller('SearchViewController', ['$scope', '$http', 'FilmService', '$loca
 app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
   FilmService.getFilmById($routeParams.filmId).then(function(stuff) {
     $scope.movie = stuff;
+    console.table(stuff);
+    let backdrop = stuff.backdrop_path;
     let poster = stuff.poster_path;
+    $scope.backdrop = "http://image.tmdb.org/t/p/w1000" + backdrop;
     $scope.poster = "http://image.tmdb.org/t/p/w500" + poster;
     let year = stuff.release_date;
     $scope.yearResponse = moment(year).format('MMM Do YYYY');
