@@ -3,21 +3,42 @@
   <img src="assets/2.jpg" id="guardians" />
   <h2 id="popcorn"><span id="fog">Grab the popcorn. This is Bijou.</span></h2>
 </div> -->
-<h2 class="titles" id="tippyTop">Now Playing</h2>
+<section class="clearfix">
+  <h2 id="bigTitle">Now Playing</h2>
+  <p class="view_more" ng-click="getMoreNowPlaying()">
+    View More
+  </p>
+</section>
 <div class="row">
   <ul class="mainUL">
-    <li class="mainLI" ng-click="getMovie(movie)" ng-repeat="movie in nowPlaying | limitTo: 10"><a class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" sr-fallback="assets/nope.png"/></a></li>
+    <li class="mainLI" ng-click="getMovie(movie)" ng-repeat="movie in nowPlaying | limitTo: 10">
+      <a class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" sr-fallback="assets/nope.png" /></a>
+    </li>
   </ul>
 </div>
-<h2 class="titles">Upcoming Releases</h2>
+<section class="clearfix">
+  <h2 id="bigTitle">Upcoming Features</h2>
+  <p class="view_more" ng-click="getMoreUpcoming()">
+    View More
+  </p>
+</section>
 <div class="row">
   <ul class="mainUL">
-    <li class="mainLI" ng-click="getMovie(movie)" ng-repeat="movie in upcoming | limitTo: 10"><a class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" sr-fallback="assets/nope.png" /></a></li>
+    <li class="mainLI" ng-click="getMovie(movie)" ng-repeat="movie in upcoming | limitTo: 10">
+      <a class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" sr-fallback="assets/nope.png" /></a>
+    </li>
   </ul>
 </div>
-<h2 class="titles">Bijou Picks</h2>
+<section class="clearfix">
+  <h2 id="bigTitle">Staff Picks</h2>
+  <p class="view_more" ng-click="getPicks()">
+    View More
+  </p>
+</section>
 <div class="row">
   <ul class="mainUL">
-    <li class="mainLI" ng-click="getMovie(pick)" ng-repeat="pick in picks | limitTo: 10"><a class="nowPlayingLink"><img ng-src="http://image.tmdb.org/t/p/w300/{{pick.poster_path}}" sr-fallback="assets/nope.png" /></a></li>
+    <li class="mainLI" ng-click="getMovie(pick)" ng-repeat="pick in picks | limitTo: 10">
+      <a class="nowPlayingLink"><img ng-src="http://image.tmdb.org/t/p/w300/{{pick.poster_path}}" sr-fallback="assets/nope.png" /></a>
+    </li>
   </ul>
 </div>

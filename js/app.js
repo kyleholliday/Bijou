@@ -11,29 +11,41 @@ var app = angular.module('BijouApp', ['ngRoute', 'FilmModule', 'angular-fallback
 // Router
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-  .when('/main', {
-    controller: 'MainViewController',
-    templateUrl: 'sections/main.html',
-  })
-  .when('/search/:query', {
-    controller: 'SearchViewController',
-    templateUrl: 'sections/search.html',
-  })
-  .when('/film/:filmId', {
-    controller: 'FilmViewController',
-    templateUrl: 'sections/film.html',
-  })
-  .when('/cast/:castId', {
-    controller: 'CastViewController',
-    templateUrl: 'sections/cast.html',
-  })
-  .when('/director/:directorId', {
-    controller: 'DirectorViewController',
-    templateUrl: 'sections/director.html',
-  })
-  .otherwise({
-    redirectTo: '/main',
-  });
+    .when('/main', {
+      controller: 'MainViewController',
+      templateUrl: 'sections/main.html',
+    })
+    .when('/search/:query', {
+      controller: 'SearchViewController',
+      templateUrl: 'sections/search.html',
+    })
+    .when('/film/:filmId', {
+      controller: 'FilmViewController',
+      templateUrl: 'sections/film.html',
+    })
+    .when('/cast/:castId', {
+      controller: 'CastViewController',
+      templateUrl: 'sections/cast.html',
+    })
+    .when('/director/:directorId', {
+      controller: 'DirectorViewController',
+      templateUrl: 'sections/director.html',
+    })
+    .when('/nowplaying', {
+      controller: 'nowPlayingController',
+      templateUrl: 'sections/nowplaying.html',
+    })
+    .when('/upcoming', {
+      controller: 'upcomingController',
+      templateUrl: 'sections/upcoming.html',
+    })
+    .when('/picks', {
+      controller: 'picksController',
+      templateUrl: 'sections/picks.html',
+    })
+    .otherwise({
+      redirectTo: '/main',
+    });
 }]);
 
 // Main Feed View controller
@@ -41,7 +53,7 @@ app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$locati
   $scope.nowPlaying = FilmService.getNowPlaying();
   $scope.upcoming = FilmService.getUpcoming();
 
-  Promise.all([FilmService.getFilmById(294963),FilmService.getFilmById(264660),FilmService.getFilmById(271714),FilmService.getFilmById(310131),FilmService.getFilmById(295699),FilmService.getFilmById(244786),FilmService.getFilmById(273481),FilmService.getFilmById(270303),FilmService.getFilmById(152603),FilmService.getFilmById(205596)]).then(function(picks) {
+  Promise.all([FilmService.getFilmById(294963), FilmService.getFilmById(264660), FilmService.getFilmById(271714), FilmService.getFilmById(310131), FilmService.getFilmById(295699), FilmService.getFilmById(244786), FilmService.getFilmById(273481), FilmService.getFilmById(270303), FilmService.getFilmById(152603), FilmService.getFilmById(205596)]).then(function(picks) {
     $scope.picks = picks;
     $scope.$apply();
   });
@@ -49,6 +61,52 @@ app.controller('MainViewController', ['$scope', '$http', 'FilmService', '$locati
   $scope.getMovie = function(search) {
     var title = $location.path('/film/' + search.id);
   };
+
+  $scope.getMoreNowPlaying = function() {
+    var nowplaying = $location.path('/nowplaying');
+  };
+
+  $scope.getMoreUpcoming = function() {
+    var upcomingMovies = $location.path('/upcoming');
+  };
+
+  $scope.getPicks = function() {
+    var picks = $location.path('/picks');
+  };
+}]);
+
+// Now Playing controller
+app.controller('nowPlayingController', ['$scope', '$http', 'FilmService', '$location', function($scope, $http, FilmService, $location) {
+
+  $scope.nowPlaying = FilmService.getNowPlaying();
+
+  $scope.getMovie = function(search) {
+    var title = $location.path('/film/' + search.id);
+  };
+}]);
+
+// Upcoming controller
+app.controller('upcomingController', ['$scope', '$http', 'FilmService', '$location', function($scope, $http, FilmService, $location) {
+
+  $scope.upcoming = FilmService.getUpcoming();
+
+  $scope.getMovie = function(search) {
+    var title = $location.path('/film/' + search.id);
+  };
+}]);
+
+// Picks Controller
+app.controller('picksController', ['$scope', '$http', 'FilmService', '$location', function($scope, $http, FilmService, $location) {
+
+  Promise.all([FilmService.getFilmById(294963), FilmService.getFilmById(264660), FilmService.getFilmById(271714), FilmService.getFilmById(310131), FilmService.getFilmById(295699), FilmService.getFilmById(244786), FilmService.getFilmById(273481), FilmService.getFilmById(270303), FilmService.getFilmById(152603), FilmService.getFilmById(205596), FilmService.getFilmById(97370), FilmService.getFilmById(274), FilmService.getFilmById(59968), FilmService.getFilmById(78), FilmService.getFilmById(76341), FilmService.getFilmById(49049), FilmService.getFilmById(86838), FilmService.getFilmById(118340), FilmService.getFilmById(6977), FilmService.getFilmById(245891)]).then(function(picks) {
+    $scope.picks = picks;
+    $scope.$apply();
+  });
+
+  $scope.getMovie = function(search) {
+    var title = $location.path('/film/' + search.id);
+  };
+
 }]);
 
 // Search View Controller
@@ -75,7 +133,7 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
     $scope.yearResponse = moment(year).format('MMM Do YYYY');
 
     $scope.directors = [];
-    for (let i = 0; i < stuff.credits.crew.length; i ++) {
+    for (let i = 0; i < stuff.credits.crew.length; i++) {
       if (stuff.credits.crew[i].job === "Director") {
         $scope.directors.push(stuff.credits.crew[i]);
       }
@@ -99,26 +157,25 @@ app.controller('FilmViewController', ['$scope', '$http', 'FilmService', '$routeP
 
 // Cast View Controller
 app.controller('CastViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
-  FilmService.getBio($routeParams.castId).then(function(bio){
+  FilmService.getBio($routeParams.castId).then(function(bio) {
     $scope.bio = bio;
   });
   FilmService.getFilmsbyCast($routeParams.castId).then(function(castMovie) {
     $scope.castMovie = castMovie.results;
-    $scope.getMovie = function(movie){
+    $scope.getMovie = function(movie) {
       var title = $location.path('/film/' + movie.id);
     };
   });
 }]);
 
 // Director View Controller
-app.controller('DirectorViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location){
-  FilmService.getBio($routeParams.directorId).then(function(bio){
+app.controller('DirectorViewController', ['$scope', '$http', 'FilmService', '$routeParams', '$location', function($scope, $http, FilmService, $routeParams, $location) {
+  FilmService.getBio($routeParams.directorId).then(function(bio) {
     $scope.bio = bio;
   });
-  FilmService.getDirector($routeParams.directorId).then(function(directorMovie)
-  {
+  FilmService.getDirector($routeParams.directorId).then(function(directorMovie) {
     $scope.directorMovie = directorMovie.results;
-    $scope.getMovie = function(movie){
+    $scope.getMovie = function(movie) {
       var title = $location.path('/film/' + movie.id);
     };
   });

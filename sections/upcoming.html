@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<h1 class="more">Upcoming Features</h1>
+<div class="row">
+  <ul class="mainUL">
+    <li class="mainLI" ng-click="getMovie(movie)" ng-repeat="movie in upcoming | limitTo: 20" data-balloon="{{movie.title}}" data-balloon-pos="down">
+      <a class="nowPlayingLink"><img ng-src="{{movie.fullPoster}}" sr-fallback="assets/nope.png" /></a>
+    </li>
+  </ul>
+</div>

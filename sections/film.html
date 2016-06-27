@@ -3,11 +3,14 @@
 <div id="filmBig">
   <div id="filmLeft">
     <img ng-src="{{poster}}" id="bigPoster" sr-fallback="assets/nope.png" />
-    <a href="{{trailer}}" target="_blank"><button id="trailerButton">Watch Trailer</button></a>
+    <a href="{{trailer}}" target="_blank">
+      <button id="trailerButton">Watch Trailer</button>
+    </a>
   </div>
 
   <div id="filmRight">
     <h1 id="filmTitle">{{movie.title}}</h1>
+    <h3 id="tagline">{{movie.tagline}}</h3>
     <h2 id="directedBy">Directed By:</h2>
     <ul id="directorUL">
       <li id="director" ng-repeat="director in directors | limitTo: 3">
@@ -19,18 +22,17 @@
     <h3>{{movie.starring}}</h3>
     <h3 id="filmRuntime">Runtime: {{movie.runtime}} mins</h3>
     <h3 id="starring">Starring:</h3>
-    <ul id= "starringUL">
-      <li class= "starringLI" ng-repeat="cast in casts | limitTo: 4">
-        <img ng-click ="getCast(cast)" ng-src="http://image.tmdb.org/t/p/w300/{{cast.profile_path}}" sr-fallback="assets/nope.png" />
-        <figcaption id="castName">{{cast.name}}</figcaption>
+    <ul id="starringUL">
+      <li class="starringLI" ng-repeat="cast in casts | limitTo: 12" ng-click="getCast(cast)">
+        <p class="castName">{{cast.name}}</p>
       </li>
     </ul>
   </div>
 </div>
 
-<h2 class="titles">Similar Titles</h2>
-<ul id = "similarUL">
-  <li class= "similarLI" ng-repeat="movie in movieTwo | limitTo: 5">
+<h2 id="bigTitle1">Similar Titles</h2>
+<ul id="similarUL">
+  <li class="similarLI" ng-repeat="movie in movieTwo | limitTo: 5">
     <img ng-click="getMovie(movie)" ng-src="http://image.tmdb.org/t/p/w300/{{movie.poster_path}}" sr-fallback="assets/nope.png" />
   </li>
 </ul>

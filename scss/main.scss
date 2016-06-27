@@ -1,117 +1,111 @@
-@import "bourbon/bourbon";
-@import "neat/neat";
-
-$light-green: #8CC34A;
-$reg-green: #20BF55;
-$blue-grey: #323F4C;
-$white: #FBFBFF;
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+$light-green: #8cc34a;
+$reg-green: #20bf55;
+$blue-grey: #323f4c;
+$white: #fbfbff;
 $dark-blue-grey: #232f3b;
-$light-blue: #01BAEF;
-$darker-blue: #0B4F6C;
+$darkest-blue: #151d24;
+$light-blue: #01baef;
+$darker-blue: #0b4f6c;
 $grey: #a29c9c;
-
 // Index Elements, Navbar and Footer
 body {
-  padding: 0;
   margin: 0;
-  background-color: $dark-blue-grey;
+  padding: 0;
   color: $white;
+  background: $darkest-blue;
 }
-h1 {
-  font-family: 'Ubuntu', sans-serif;
-}
-h2 {
-  font-family: 'Ubuntu', sans-serif;
-}
-h3 {
-  font-family: 'Ubuntu', sans-serif;
-}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
   font-family: 'Ubuntu', sans-serif;
 }
 header {
-  background-image: -webkit-linear-gradient(#B4EC51 0%, #429321 100%);
+  background-image: -webkit-linear-gradient(#b4ec51 0%, #429321 100%);
+  border-bottom: 2px solid $grey;
 }
 #toplist {
   font-family: 'Ubuntu', sans-serif;
-  color: $white;
+  overflow: hidden;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   list-style-type: none;
+  color: $white;
 }
 #logo {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
   display: inline;
   float: left;
-  font-size: 70px;
-  color: $white;
   margin-left: 40px;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
+  color: $white;
   a {
+    margin: 0;
     padding: 2px;
-    margin: 0px;
     transition: all ease 0.4s;
+    &:hover {
+      color: $dark-blue-grey;
+    }
   }
 }
-#logo a:hover {
-  color: $dark-blue-grey;
-}
 .navbar {
-  float: left;
   font-size: 20px;
+  float: left;
 }
 .toplink {
   display: block;
-  color: $white;
-  text-align: center;
   padding: 8px;
+  text-align: center;
   text-decoration: none;
+  color: $white;
 }
 form {
-  margin-top: 2%;
   font-family: 'Ubuntu', sans-serif;
   font-size: 24px;
-  color: $white;
-  margin-right: 40px;
   float: right;
-  margin-top: 25px;
+  margin-top: 1%;
+  margin-right: 40px;
+  color: $white;
 }
 input {
-  background: $blue-grey;
-  border: 2px solid $white;
-  border-radius: 5px;
-  font-size: 20px;
   font-family: 'Ubuntu', sans-serif;
-  padding: 4px;
-  padding-left: 10px;
-  color: $white;
+  font-size: 17px;
   width: 280px;
+  padding: 4px 4px 4px 10px;
+  color: $dark-blue-grey;
+  border: 0;
+  border-radius: 5px;
+  background: $white;
 }
 #searchButton {
-  color: $white;
-  background-color: $blue-grey;
-  border: 2px solid $white;
-  border-radius: 5px;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   margin-left: 5px;
   padding: 7px;
   transition: all ease 0.4s;
-}
-#searchButton:hover {
-  cursor: pointer;
-  background-color: $white;
-  color: $blue-grey;
-}
-
-footer {
+  color: $white;
+  border: 2px solid $white;
+  border-radius: 5px;
   background-color: $blue-grey;
+  &:hover {
+    cursor: pointer;
+    color: $blue-grey;
+    background-color: $white;
+  }
+}
+footer {
   padding: 20px;
+  background-color: $dark-blue-grey;
   p {
-    margin: 0px 10px;
-    display: inline;
     font-size: 13px;
+    display: inline;
+    margin: 0 10px;
     a {
       text-decoration: none;
       color: $light-green;
@@ -122,48 +116,65 @@ footer {
   width: 26px;
   height: auto;
   margin-bottom: -6px;
+  &:hover {
+    opacity: 0.5;
+  }
 }
-#octocat:hover {
-  opacity: .5;
-}
-
 //Main View
 #tippyTop {
-  margin-top: 10px;
+  margin-top: 15px;
 }
-.titles {
-  margin-left: 40px;
-  font-family: 'Ubuntu', sans-serif;
-  color: $white;
-  margin-bottom: 0px;
-  margin-top: 0px;
+.clearfix {
+  padding: 1em 0 0;
+  #bigTitle,
+  .view_more {
+    display: inline;
+  }
+  #bigTitle {
+    font-size: 1.75em;
+    padding-left: 6%;
+  }
+  .view_more {
+    float: right;
+    font-size: 1em;
+    margin: 0.75em 7% 0;
+    transition: ease all 0.4s;
+    color: $light-blue;
+    &:hover {
+      color: $light-green;
+      cursor: pointer;
+    }
+  }
 }
 .mainUL {
-  list-style-type: none;
-  padding: 0;
   overflow: hidden;
-  margin-left: 60px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
+  padding-left: 60px;
+  padding-bottom: 2%;
+  margin-top: 0;
+  list-style-type: none;
+  border-bottom: 2px $grey solid;
+  box-sizing: border-box;
 }
 .mainLI {
-  float: left;
   display: inline-block;
+  float: left;
   height: auto;
   margin: 15px;
   img {
     width: 200px;
     height: 298px;
-    border-radius: 5px;
-    border: 2px solid $white;
     transition: all ease 0.4s;
+    border: 2px solid $white;
+    border-radius: 5px;
   }
   img:hover {
-    border: 2px solid $light-blue;
     cursor: pointer;
+    border: 2px solid $light-blue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
   }
 }
-#bottomMain{
+#bottomMain {
   @include outer-container;
 }
 
@@ -171,171 +182,178 @@ footer {
 #filmBig {
   @include outer-container;
 }
-#filmLeft{
+#filmLeft {
   @include span-columns(4);
 }
 #filmRight {
-  @include span-columns(7);
   margin-left: 20px;
+  padding-top: 1.5%;
+  @include span-columns(7);
 }
 #bigPoster {
   width: 340px;
   height: auto;
-  border: 2px solid $white;
-  border-radius: 5px;
   margin-top: 20px;
   margin-left: 60px;
+  border: 1px solid $white;
+  border-radius: 5px;
 }
 #filmTitle {
-  margin-bottom: 0px;
   font-size: 40px;
+  margin-bottom: 0;
+}
+#tagline {
+  font-weight: 300;
+  margin-top: 1%;
+  font-family: 'Open Sans', sans-serif;
 }
 #filmYear {
   margin-top: 5px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 #directedBy {
-  margin: 5px 0px 5px;
+  margin: 5px 0;
 }
 #directorUL {
-  padding: 0px;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   list-style-type: none;
   li {
     font-family: 'Ubuntu', sans-serif;
     color: $light-blue;
   }
   p {
-    margin: 5px 0px 5px;
     font-size: 25px;
-    transition: ease all 0.4s;
     display: inline;
+    margin: 5px 0;
+    transition: ease all 0.4s;
   }
   p:hover {
-    color: $light-green;
     cursor: pointer;
+    color: $light-green;
   }
 }
 #synopsis {
   font-size: 18px;
   color: $grey;
+  font-family: 'Open Sans', sans-serif;
 }
 #starring {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 #starringUL {
-  list-style-type: none;
-  padding: 0px;
   overflow: hidden;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 1em;
+  margin-bottom: 0;
+  padding: 0;
+  list-style-type: none;
 }
 .starringLI {
+  font-size: 1.2rem;
   display: inline-block;
   height: auto;
-  margin: 10px;
-  vertical-align: top;
-  img {
-    width: 140px;
-    height: 208px;
-    border-radius: 5px;
-    border:2px solid $white;
-    transition: ease all 0.4s;
-  }
-  img:hover {
-    border-color: $light-blue;
+  margin: 0 7px 7px 0;
+  padding: 2px 5px;
+  transition: ease 0.4s all;
+  white-space: nowrap;
+  color: #9ab;
+  border: 1px solid #a29c9c;
+  border-radius: 3px;
+  background: #232f3b;
+  &:hover {
     cursor: pointer;
+    color: #def;
+    background: #333b42;
   }
 }
-figcaption {
-  font-family: 'Ubuntu', sans-serif;
-  text-align: center;
-  width: 140px;
+.castName {
+  line-height: 1.5;
+  margin: 0;
 }
 #trailerButton {
-  background-color: $light-blue;
-  color: $white;
-  border: 0px;
-  width: 220px;
-  border-radius: 5px;
-  margin-left: 32%;
   font-family: 'Ubuntu', sans-serif;
   font-size: 25px;
+  width: 220px;
   margin-top: 10px;
   margin-bottom: 20px;
-  padding: 10px 10px;
+  margin-left: 32%;
+  padding: 10px;
   transition: all ease 0.4s;
+  color: $white;
+  border: 0;
+  border-radius: 5px;
+  background-color: $light-blue;
 }
 #trailerButton:hover {
   cursor: pointer;
   background-color: $darker-blue;
 }
+#bigTitle1 {
+  font-size: 1.75em;
+  padding-left: 6%;
+  margin: 0;
+}
 #similarUL {
-  list-style-type: none;
-  padding: 0;
   overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-left: 60px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  padding: 0;
+  list-style-type: none;
 }
 .similarLI {
-  float: left;
   display: inline;
+  float: left;
   height: auto;
   margin: 15px;
   img {
     width: 200px;
     height: 298px;
-    border-radius: 5px;
-    border: 2px solid $white;
     transition: all ease 0.4s;
+    border: 2px solid $white;
+    border-radius: 5px;
   }
   img:hover {
-    border: 2px solid $light-blue;
     cursor: pointer;
+    border: 2px solid $light-blue;
   }
 }
 
 //Search View
 #searchResults {
-  padding-left: 38px;
-  margin-bottom: 0px;
   margin-top: 10px;
+  margin-bottom: 0;
+  padding-left: 38px;
 }
 #searchListOne {
-  @include outer-container;
+  margin-top: 0;
   list-style-type: none;
-  margin-top: 0px;
+  @include outer-container;
 }
 #listItem {
+  margin: 10px 0 0;
   @include span-columns(3);
   @include omega(4n);
-  margin: 0px;
-  margin-top: 10px;
 }
 #searchListTwo {
-  list-style-type: none;
   padding: 0;
+  list-style-type: none;
   h3, h4 {
-    text-align:left;
+    text-align: left;
   }
 }
 #searchTopTitle {
-  margin-bottom: 0px;
-}
-#releaseDate {
-  margin-top: 0px;
-  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 0;
 }
 #searchPoster {
+  overflow: hidden;
   width: 150px;
   height: 249px;
-  overflow: hidden;
-  @include span-columns(2 of 3);
-  border-radius: 5px;
-  border: 2px solid $white;
   margin-right: 15px;
   transition: all ease 0.4s;
+  border: 2px solid $white;
+  border-radius: 5px;
+  @include span-columns(2 of 3);
 }
 #searchPoster:hover {
   cursor: pointer;
@@ -344,18 +362,62 @@ figcaption {
 #searchRight {
   @include span-columns(1 of 3);
 }
-
+.searchLI {
+  display: inline-block;
+  height: auto;
+  margin: 10px;
+  vertical-align: top;
+  img {
+    width: 140px;
+    height: 208px;
+    border-radius: 5px;
+    border: 2px solid $white;
+    transition: ease all 0.4s;
+  }
+  img:hover {
+    border-color: $light-blue;
+    cursor: pointer;
+  }
+}
+figcaption {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  width: 140px;
+}
 // Cast View
 #castMain {
   @include outer-container;
 }
 #bioPopular {
-  margin-bottom: 0px;
+  margin-bottom: 0;
+}
+.castMovie {
+  display: inline-block;
+  height: auto;
+  margin: 0 5px 5px 0;
+  padding: 2px 5px;
+  vertical-align: top;
+  white-space: nowrap;
+  border-radius: 3px;
+  &:hover {
+    cursor: pointer;
+  }
+  img {
+    width: 140px;
+    height: 208px;
+    transition: ease all 0.4s;
+    border: 2px solid $white;
+    border-radius: 5px;
+  }
+  img:hover {
+    cursor: pointer;
+    border-color: $light-blue;
+  }
 }
 #castUL {
-  @include span-columns(9);
-  margin-right: 0px;
   margin-top: 8px;
+  margin-right: 0;
+  @include span-columns(9);
 }
 #castBio {
   @include span-columns(3);
@@ -365,11 +427,247 @@ figcaption {
   }
   p {
     margin-top: 1px;
+    font-family: 'Open Sans', sans-serif;
   }
 }
 #bioPic {
-  width:230px;
+  width: 230px;
   height: auto;
-  border-radius: 5px;
   border: 2px solid $white;
+  border-radius: 5px;
+}
+
+// More
+.more {
+  text-align: center;
+  font-size: 3.5rem;
+  margin: 0.3em 0;
+}
+
+// Balloon stuff
+//
+// Variables
+// -----------------------------------------
+$balloon-bg: fade-out(#111, .1);
+$balloon-base-size: 10px;
+$balloon-arrow-height: 6px;
+//
+// Mixins
+// -----------------------------------------
+@mixin svg-arrow ($color, $position: up) {
+  $degrees: 0;
+  $height: 6px;
+  $width: 18px;
+  @if ($position == down) {
+    $degrees: 180 18 6;
+  }
+  @else if ($position == left) {
+    $degrees: -90 18 18;
+    $width: 6px;
+    $height: 18px;
+  }
+  @else if ($position == right) {
+    $degrees: 90 6 6;
+    $width: 6px;
+    $height: 18px;
+  }
+  background: no-repeat url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="#{$width * 2}" height="#{$height * 2}"><path fill="#{$color}" transform="rotate(#{$degrees})" d="M2.658,0.000 C-13.615,0.000 50.938,0.000 34.662,0.000 C28.662,0.000 23.035,12.002 18.660,12.002 C14.285,12.002 8.594,0.000 2.658,0.000 Z"/></svg>');
+  background-size: 100% auto;
+  width: $width;
+  height: $height;
+}
+@mixin transition ($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin transform ($val) {
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  transform: $val;
+}
+@mixin transform-origin ($val) {
+  -webkit-transform-origin: $val;
+  -moz-transform-origin: $val;
+  -ms-transform-origin: $val;
+  transform-origin: $val;
+}
+@mixin opacity ($trans) {
+  filter: alpha(opactiy=($trans * 100));
+  -ms-filter:  "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
+  -moz-opacity: $trans;
+  -khtml-opacity: $trans;
+  opacity: $trans;
+}
+@mixin base-effects () {
+   @include opacity(0);
+  pointer-events: none;
+  @include transition(all .18s ease-out .18s);
+}
+//
+// Styles
+// -----------------------------------------
+[data-balloon] {
+  position: relative; // alt. absolute or fixed
+  &:after {
+    @include base-effects();
+    background: $balloon-bg;
+    border-radius: 4px;
+    color: #fff;
+    content: attr(data-balloon);
+    font-size: $balloon-base-size + 4;
+    padding: 0.5em 1em;
+    position: absolute;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  &:before {
+    @include svg-arrow($balloon-bg);
+    @include base-effects();
+    content: '';
+    position: absolute;
+    z-index: 10;
+  }
+  &:hover {
+    &:after,
+    &:before {
+      @include opacity(1);
+      pointer-events: auto;
+    }
+  }
+  &[data-balloon-break] {
+    &:after {
+      white-space: normal;
+    }
+  }
+  &[data-balloon-pos="up"] {
+    &:after {
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: 5px + $balloon-arrow-height;
+      @include transform(translate(-50%, 10px));
+      @include transform-origin(top);
+    }
+    &:before {
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: 5px;
+      @include transform(translate(-50%, 10px));
+      @include transform-origin(top);
+    }
+    &:hover {
+      &:after {
+        @include transform(translate(-50%, 0));
+      }
+      &:before {
+        @include transform(translate(-50%, 0));
+      }
+    }
+  }
+  &[data-balloon-pos='down'] {
+    &:after {
+      left: 50%;
+      margin-top: 5px + $balloon-arrow-height;
+      top: 100%;
+      @include transform(translate(-50%, -10px));
+    }
+    &:before {
+      @include svg-arrow($balloon-bg, 'down');
+      left: 50%;
+      margin-top: 5px;
+      top: 100%;
+      @include transform(translate(-50%, -10px));
+    }
+    &:hover {
+      &:after {
+        @include transform(translate(-50%, 0));
+      }
+      &:before {
+        @include transform(translate(-50%, 0));
+      }
+    }
+  }
+  &[data-balloon-pos='left'] {
+    &:after {
+      margin-right: 5px + $balloon-arrow-height;
+      right: 100%;
+      top: 50%;
+      @include transform(translate(10px, -50%));
+    }
+    &:before {
+      @include svg-arrow($balloon-bg, 'left');
+      margin-right: 5px;
+      right: 100%;
+      top: 50%;
+      @include transform(translate(10px, -50%));
+    }
+    &:hover {
+      &:after {
+        @include transform(translate(0, -50%));
+      }
+      &:before {
+        @include transform(translate(0, -50%));
+      }
+    }
+  }
+  &[data-balloon-pos='right'] {
+    &:after {
+      left: 100%;
+      margin-left: 5px + $balloon-arrow-height;
+      top: 50%;
+      @include transform(translate(-10px, -50%));
+    }
+    &:before {
+      @include svg-arrow($balloon-bg, 'right');
+      left: 100%;
+      margin-left: 5px;
+      top: 50%;
+      @include transform(translate(-10px, -50%));
+    }
+    &:hover {
+      &:after {
+        @include transform(translate(0, -50%));
+      }
+      &:before {
+        @include transform(translate(0, -50%));
+      }
+    }
+  }
+  &[data-balloon-length='small'] {
+    &:after {
+      white-space: normal;
+      width: 80px;
+    }
+  }
+  &[data-balloon-length='medium'] {
+    &:after {
+      white-space: normal;
+      width: 150px;
+    }
+  }
+  &[data-balloon-length='large'] {
+    &:after {
+      white-space: normal;
+      width: 260px;
+    }
+  }
+  &[data-balloon-length='xlarge'] {
+    &:after {
+      white-space: normal;
+      width: 380px;
+      @media screen and (max-width: 768px) {
+        white-space: normal;
+        width: 90vw;
+      }
+    }
+  }
+  &[data-balloon-length='fit'] {
+    &:after {
+      white-space: normal;
+      width: 100%;
+    }
+  }
 }
