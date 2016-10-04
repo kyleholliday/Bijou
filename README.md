@@ -1,5 +1,5 @@
 
-# Bijou ![alt](https://travis-ci.org/kyleholliday/Bijou.svg?branch=master)
+# Bijou
 
 Bijou is live at http://bijou.surge.sh
 
