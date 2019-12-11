@@ -5,6 +5,8 @@ Bijou is live at http://bijou.surge.sh
 
 Bijou is an Angular-based movie database app. Users can see what's playing now, upcoming movies, and staff picks. Users can also watch movie trailers, search for movies using the Film Finder feature, and see actor's and director's filmography
 
+[Bijou Screenshot](/bijou-screenshot.png)
+
 ## Overview
 
 ### Key Features
